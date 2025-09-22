@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Website</title>
+	<style>
+		   body {
+			   font-family: Arial, sans-serif;
+			   margin: 0;
+			   padding: 0;
+			   background: #001f3f; /* Navy blue */
+		   }
+		   .navbar {
+			   display: flex;
+			   align-items: center;
+			   background: #001a33; /* Darker navy */
+			   padding: 0 20px;
+			   height: 50px;
+		   }
+		   .nav-tabs {
+			   display: flex;
+			   gap: 20px;
+		   }
+		   .nav-tab {
+			   color: #00ffff; /* Cyan */
+			   text-decoration: none;
+			   padding: 10px 0;
+			   font-size: 16px;
+			   border-bottom: 2px solid transparent;
+			   transition: border 0.2s;
+		   }
+		   .nav-tab.active, .nav-tab:hover {
+			   border-bottom: 2px solid #00ffff; /* Cyan underline */
+			   color: #fff;
+		   }
+		   .content {
+			   padding: 30px 20px;
+			   color: #fff;
+		   }
+	</style>
+</head>
+<body>
+	<div class="navbar">
+		<div class="nav-tabs">
+			<a href="#home" class="nav-tab active" onclick="showTab('home', event)">Home</a>
+			<a href="#about" class="nav-tab" onclick="showTab('about', event)">About us</a>
+			<a href="#contact" class="nav-tab" onclick="showTab('contact', event)">Contact Us</a>
+		</div>
+	</div>
+	<div class="content">
+		<div id="home-tab">
+			<h1>Welcome to Our Website</h1>
+			<p>This is the Home page. Enjoy browsing!</p>
+		</div>
+		<div id="about-tab" style="display:none;">
+			<h1>About Us</h1>
+			<p>We are a team dedicated to providing great service and information.</p>
+		</div>
+		<div id="contact-tab" style="display:none;">
+		<h1>Contact Us</h1>
+		<p>
+			You can reach us at 
+			<a href="mailto:info.almondsolutions@gmail.com">info.almondsolutions@gmail.com</a>,
+			call (+254) 759-471119,
+			or message us on WhatsApp:
+			<a href="https://wa.me/254759471119" target="_blank" style="color:#25D366; font-weight:bold; text-decoration:none;">+254759471119</a>.
+		</p>
+	</div>
+	<script>
+		   function showTab(tab, event) {
+			   event.preventDefault();
+			   document.getElementById('home-tab').style.display = tab === 'home' ? '' : 'none';
+			   document.getElementById('about-tab').style.display = tab === 'about' ? '' : 'none';
+			   document.getElementById('contact-tab').style.display = tab === 'contact' ? '' : 'none';
+			   var tabs = document.querySelectorAll('.nav-tab');
+			   tabs.forEach(function(el) { el.classList.remove('active'); });
+			   if(tab === 'home') tabs[0].classList.add('active');
+			   if(tab === 'about') tabs[1].classList.add('active');
+			   if(tab === 'contact') tabs[2].classList.add('active');
+		   }
+	</script>
+</body>
+</html>
